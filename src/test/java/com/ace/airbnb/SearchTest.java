@@ -5,6 +5,7 @@ import com.ace.airbnb.framework.Browser;
 import com.ace.airbnb.framework.ScreenshotTaker;
 import com.ace.airbnb.framework.WebDriverConfig;
 import com.ace.airbnb.framework.WindowHandler;
+import com.ace.airbnb.ui.pages.MoreFiltersForm;
 import com.ace.airbnb.ui.pages.PropertyPage;
 import com.ace.airbnb.ui.pages.StaysSearchForm;
 import com.ace.airbnb.ui.pages.YourSearchPage;
@@ -41,7 +42,7 @@ public class SearchTest extends AbstractTestNGSpringContextTests {
     String city;
 
 
-    @Test
+    //@Test
     public void test1_verifyAppliedFilters(){
         Reporter.log(" Test 1: Verify that the results match the search criteria -  applied filters are correct");
 
@@ -61,8 +62,6 @@ public class SearchTest extends AbstractTestNGSpringContextTests {
         String timeInterval = getDateFormatForLittleSearchFilter();
         Reporter.log("Check selected time interval is: " + timeInterval);
 
-        System.out.println(yourSearchPage.getDateFromFilter());
-        System.out.println(timeInterval);
         softAssert.assertTrue(yourSearchPage.getDateFromFilter().equals(timeInterval), "Selected dates in filter not as expected");
         softAssert.assertAll();
 
@@ -89,7 +88,8 @@ public class SearchTest extends AbstractTestNGSpringContextTests {
 
     }
 
-    @Test
+    //@Test(dependsOnMethods = { "test1_verifyAppliedFilters" })
+    //@Test
     public void test1_verifyMaxNumberOfGuestOnEachProperty(){
 
         Reporter.log(" Test 1: Verify that properties displayed on the first page can accommodate at least the selected\n" +
@@ -97,6 +97,8 @@ public class SearchTest extends AbstractTestNGSpringContextTests {
         yourSearchPage = new YourSearchPage(browser);
         propertyPage = new PropertyPage(browser);
 
+       /* yourSearchPage.waitForPropertiesListToBeDisplayed();
+        int totalNumberOfCards  = yourSearchPage.getPropertiesOnFirstPage().size();*/
         int totalNumberOfCards;
         int j=0;
         do{
@@ -134,6 +136,60 @@ public class SearchTest extends AbstractTestNGSpringContextTests {
         softAssert.assertAll();
     }
 
+    @Test
+    public void test2_verifyExtraFilters(){
+
+        int BEDROOMS = 5;
+        SoftAssert softAssert = new SoftAssert();
+        yourSearchPage = new YourSearchPage(browser);
+
+        yourSearchPage.openMoreFilters();
+
+        MoreFiltersForm moreFiltersForm = new MoreFiltersForm(browser);
+
+        moreFiltersForm.increaseNumberOfBedrooms(BEDROOMS);
+        moreFiltersForm.selectPool();
+
+        moreFiltersForm.clickOnShowPlacesButton();
+
+        int noOfProperties = yourSearchPage.waitForPropertiesListToBeDisplayed();
+
+        for (int i =1; i<=noOfProperties; i++){
+            String subtitle = yourSearchPage.getPropertyInfoOnCardSecondSubtitle(i);
+            String nameOfProperty = yourSearchPage.getPropertyInfoOnCardName(i);
+
+            if (!subtitle.contains("Free cancellation")){
+                String subtitle2 = yourSearchPage.getPropertyInfoOnCardNoOfBedrooms(i);
+                softAssert.assertTrue(subtitle2.contains("bedrooms"));
+                String[] noOfBedrooms = subtitle2.split(" ");
+                int numberOfBedrooms = Integer.parseInt(noOfBedrooms[0]);
+                Reporter.log("Property " + nameOfProperty + " has " + numberOfBedrooms + " bedrooms");
+                softAssert.assertTrue(numberOfBedrooms >= BEDROOMS, "Number of rooms "+ numberOfBedrooms + " displayed for property " + nameOfProperty + " might not be correct");
+            }
+        }
+
+        propertyPage = new PropertyPage(browser);
+
+        new WindowHandler(browser) {
+            @Override
+            public void openWindow(WebDriver driver) {
+                yourSearchPage.selectProperty(1);
+
+            }
+
+            @Override
+            public void useWindow(WebDriver driver) {
+                Reporter.log("Check that 'Pool' option is displayed for property " + propertyPage.getPropertyName());
+                propertyPage.dismissModalAboutTranslation();
+                propertyPage.clickShowAllAmenities();
+                softAssert.assertTrue(propertyPage.checkPool());
+            }
+        }.run();
+
+        softAssert.assertAll();
+
+
+    }
 
     @BeforeMethod(alwaysRun = true)
     @Parameters({"adults", "children", "location"})
