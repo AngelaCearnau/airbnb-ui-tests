@@ -115,6 +115,7 @@ public class StaysSearchForm {
     }
 
     public void clickSearchButton(){
+        browser.click(EXPLORE_HEADER_WHERE_INPUT);
         browser.click(SEARCH_BUTTON);
         browser.await(STAYS_PAGE_HEADING_TEXT);
         new WebDriverWait(browser, Duration.ofSeconds(20)).until(

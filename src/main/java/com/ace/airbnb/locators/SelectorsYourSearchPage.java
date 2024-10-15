@@ -25,12 +25,24 @@ public enum SelectorsYourSearchPage implements Supplier<By> {
 
     //PROPERTY_CARD("//div[@itemprop='itemListElement']/meta[@content='" + "{placeholder}" + "']/parent::div//div[@data-testid='card-container']"),
     PROPERTY_CARD("(//div[@itemprop='itemListElement']/parent::div/parent::div/parent::div[@class='']//div[@data-testid='card-container'])[" + PLACEHOLDER + "]"),
+
+    PROPERTY_CARD_SECOND_SUBTITLE(PROPERTY_CARD.get(),"//*[@data-testid='listing-card-subtitle'][2]"),
+    PROPERTY_CARD_SECOND_SUBTITLE_BEDROOMS(PROPERTY_CARD_SECOND_SUBTITLE.get(),"/span[2]"),
+    PROPERTY_CARD_INFO_NAME(PROPERTY_CARD.get(),"//*[@data-testid='listing-card-title']"),
     //PROPERTY_CARD(PROPERTIES_DISPLAYED.get(), "(//div[@itemprop='itemListElement']/parent::div/parent::div/parent::div[@class='']//div[@data-testid='card-container'])[" + PLACEHOLDER + "]"),
+//'listing-card-title'
+    //'listing-card-subtitle'
 
-    //data-searchbar-open
-    LITTLE_SEARCH("//div[contains(@data-searchbar-open,'false')]")
+
+    //more filters
+    MORE_FILTERS("//button[@data-testid='category-bar-filter-button']"),
+    INCREASE_NUMBER_OF_BEDROOMS("//div[@id='stepper-filter-item-min_bedrooms']//button[2]"),
+    SHOW_MORE("//button[@type='button']/span[text()= 'Show more']"),
 
 
+    //amenities
+    FEATURES_POOL("//span[text() = 'Pool']"),
+    FILTERS_SHOW_PLACES_BUTTON("//*[@aria-label='Filters']//footer/div/a")
 
 ;
 

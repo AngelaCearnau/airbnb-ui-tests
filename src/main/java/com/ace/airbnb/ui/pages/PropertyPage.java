@@ -4,9 +4,9 @@ import com.ace.airbnb.framework.Browser;
 import com.ace.airbnb.framework.WebDriverConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
+import org.testng.Reporter;
 
-import static com.ace.airbnb.locators.SelectorsPropertyPage.OVERVIEW_SECTION;
-import static com.ace.airbnb.locators.SelectorsPropertyPage.PROPERTY_NAME;
+import static com.ace.airbnb.locators.SelectorsPropertyPage.*;
 
 @ContextConfiguration(classes = {WebDriverConfig.class, Browser.class})
 public class PropertyPage {
@@ -29,5 +29,22 @@ public class PropertyPage {
 
     public String getPropertyName(){
         return browser.getText(PROPERTY_NAME);
+    }
+
+    public void dismissModalAboutTranslation(){
+        try{
+            browser.click(TRANSLATION_MODAL);
+        } catch (Exception e){
+            Reporter.log("Translation modal not displayed");
+        }
+
+    }
+
+    public void clickShowAllAmenities(){
+        browser.click(SHOW_AMENITIES);
+    }
+
+    public boolean checkPool(){
+        return browser.awaitOptional(FACILITIES_SECTION_POOL);
     }
 }

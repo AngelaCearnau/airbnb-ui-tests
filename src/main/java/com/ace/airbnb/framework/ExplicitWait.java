@@ -40,6 +40,14 @@ public interface ExplicitWait extends SearchScope {
                 );
     }
 
+    default boolean awaitOptional(Supplier<By> by) {
+        try {
+            return await((SearchScope e) -> e.isPresent(by), Constants.TIMEOUT_10_SECONDS);
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     default String getText(Supplier<By> by) {
         return await(by).getText();
     }
@@ -54,6 +62,10 @@ public interface ExplicitWait extends SearchScope {
 
     default void awaitTextPresenceInElement(Supplier<By> by, String text) {
         await((SearchScope e) -> e.textToBePresentInElement(by, text), Constants.TIMEOUT_DEFAULT);
+    }
+
+    default void awaitTextFromElementContains(Element element, String pattern) {
+        await((SearchScope e) -> e.textFromElementContains(element, pattern), Constants.TIMEOUT_DEFAULT);
     }
 
 

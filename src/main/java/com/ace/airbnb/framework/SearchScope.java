@@ -52,4 +52,8 @@ public interface SearchScope extends SearchContext {
     default String getText(Supplier<By> by) {
         return new Element(findElement(by.get())).getText();
     }
+
+    default boolean textFromElementContains(Element element, String pattern) {
+        return element.getText().contains(pattern);
+    }
 }

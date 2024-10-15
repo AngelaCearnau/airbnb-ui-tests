@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name = "SearchTestSuite">
+    <parameter name="adults" value="2"/>
+    <parameter name="children" value="1"/>
+    <parameter name="location" value="Rome, Italy"/>
+    <test name="functionality-test">
+        <classes>
+            <class name="com.ace.airbnb.SearchTest" />
+        </classes>
+    </test>
+</suite>
