@@ -31,11 +31,6 @@ public class YourSearchPage {
     @Autowired
     private com.ace.airbnb.framework.Browser browser;
 
-    //private Element heading;
-    //private WebDriverWait wait;
-
-
-    //private Browser browser;
 
     public YourSearchPage(Browser browser) {
         this.browser = browser;
@@ -44,24 +39,16 @@ public class YourSearchPage {
 
 
     public String getTextFromStaysPageHeading(){
-        //System.out.println("text:" + browser.getText(STAYS_PAGE_HEADING));
 
         new WebDriverWait(browser, Duration.ofSeconds(20)).until(
                 webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
 
         browser.awaitTextPresenceInElement(STAYS_PAGE_HEADING, "places in");
-        //System.out.println("text:" + browser.getText(STAYS_PAGE_HEADING));
-        //heading  = browser.await(STAYS_PAGE_HEADING);
         browser.awaitTextPresenceInElement(SEARCH_GUESTS, "guests");
-        //System.out.println("text2:" + browser.getText(SEARCH_GUESTS));
+
         return browser.getText(STAYS_PAGE_HEADING);
     }
 
-
-/*    public void hoverOverProperty(int index){
-        String propWithIndex = String.valueOf(index);
-        browser.hoverOn(PROPERTY_CARD.xpathWithParam(propWithIndex));
-    }*/
 
     public void selectProperty(int index){
         String propWithIndex = String.valueOf(index);
@@ -97,9 +84,6 @@ public class YourSearchPage {
         String propWithIndex = String.valueOf(index);
         return browser.getText(PROPERTY_CARD_INFO_NAME.xpathWithParam(propWithIndex));
     }
-
-
-
 
     public List<Element> getPropertiesOnFirstPage(){
 
@@ -143,26 +127,10 @@ public class YourSearchPage {
                 break;
             }
         } while (j<30);
-        //int totalNumberOfCards  = yourSearchPage.getPropertiesOnFirstPage().size();
-        System.out.println("totalNumberOfCards" + totalNumberOfCards);
+
         return totalNumberOfCards;
     }
 
-    public void testAction2(){
-
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
-        browser.hoverOn(PROPERTY_CARD_TEST);
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     private PropertyCard getInfoOnPropertyCard(){
         String propWithIndex = String.valueOf(1);
@@ -249,7 +217,7 @@ public class YourSearchPage {
         WebElement element = driver.findElement(SELECTED_ON_MAP_BUTTON_STYLE.get());
 
         String selectedPinColor = element.getCssValue("background-color");
-        Reporter.log("background color after hover" + selectedPinColor);
+        Reporter.log("background color for the pin after hover" + selectedPinColor);
 
         return !selectedPinColor.equals(pinColor);
 
@@ -270,8 +238,12 @@ public class YourSearchPage {
     }
 
     public void closeNewDriver(WebDriver driver){
-        driver.close();
-        driver.quit();
+
+        if (driver != null){
+            driver.close();
+            driver.quit();
+        }
+
     }
 
 

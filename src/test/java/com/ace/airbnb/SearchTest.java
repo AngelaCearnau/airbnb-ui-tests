@@ -17,7 +17,7 @@ import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Reporter;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
 import javax.inject.Inject;
@@ -25,7 +25,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-@ContextConfiguration(classes = {StaysSearchForm.class, WebDriverConfig.class, Browser.class})
+@ContextConfiguration(classes = {StaysSearchForm.class, YourSearchPage.class, WebDriverConfig.class, Browser.class})
 @TestExecutionListeners(listeners = {ScreenshotTaker.class, DependencyInjectionTestExecutionListener.class})
 public class SearchTest extends AbstractTestNGSpringContextTests {
 
@@ -33,27 +33,25 @@ public class SearchTest extends AbstractTestNGSpringContextTests {
     private StaysSearchForm staysSearchForm;
 
     @Autowired
+    private YourSearchPage yourSearchPage;
+
+    @Autowired
     private WebDriver driver;
 
     @Inject
     private Browser browser;
 
-    private YourSearchPage yourSearchPage;
     private PropertyPage propertyPage;
 
     int guestsNumber;
     String city;
 
 
-    //@Test
+    @Test
     public void test1_verifyAppliedFilters(){
         Reporter.log(" Test 1: Verify that the results match the search criteria -  applied filters are correct");
 
         String guestsNumberString = guestsNumber + " guests";
-
-
-        yourSearchPage = new YourSearchPage(browser);
-
 
         SoftAssert softAssert = new SoftAssert();
 
@@ -92,28 +90,26 @@ public class SearchTest extends AbstractTestNGSpringContextTests {
     }
 
     //@Test(dependsOnMethods = { "test1_verifyAppliedFilters" })
-    //@Test
+    @Test
     public void test1_verifyMaxNumberOfGuestOnEachProperty(){
 
         Reporter.log(" Test 1: Verify that properties displayed on the first page can accommodate at least the selected\n" +
                 " number of guests");
-        yourSearchPage = new YourSearchPage(browser);
+
         propertyPage = new PropertyPage(browser);
 
-       /* yourSearchPage.waitForPropertiesListToBeDisplayed();
-        int totalNumberOfCards  = yourSearchPage.getPropertiesOnFirstPage().size();*/
         int totalNumberOfCards;
         int j=0;
         do{
             j++;
-            //System.out.println("Counter" +  j);
             totalNumberOfCards  = yourSearchPage.getPropertiesOnFirstPage().size();
             if (totalNumberOfCards>6){
                 break;
             }
         } while (j<30);
-        //int totalNumberOfCards  = yourSearchPage.getPropertiesOnFirstPage().size();
-        System.out.println("totalNumberOfCards" + totalNumberOfCards);
+
+        Reporter.log("Open page for each property and check number of guests is >= than " + guestsNumber);
+        //System.out.println("totalNumberOfCards" + totalNumberOfCards);
         SoftAssert softAssert = new SoftAssert();
         for (int i=1;i<=totalNumberOfCards;i++){
                 int finalI = i;
@@ -127,9 +123,6 @@ public class SearchTest extends AbstractTestNGSpringContextTests {
                     public void useWindow(WebDriver driver) {
 
                         int guestsAllowed = propertyPage.getNumberOfGuests();
-                        //System.out.println("In the new window: " + propertyPage.getNumberOfGuests());
-
-                        //SoftAssert softAssert = new SoftAssert();
                         Reporter.log("Guests allowed for property " + propertyPage.getPropertyName() + " : " + guestsAllowed);
                         softAssert.assertTrue(guestsAllowed >= guestsNumber);
                     }
@@ -139,20 +132,23 @@ public class SearchTest extends AbstractTestNGSpringContextTests {
         softAssert.assertAll();
     }
 
-    //@Test
+    @Test
     public void test2_verifyExtraFilters(){
 
         int BEDROOMS = 5;
         SoftAssert softAssert = new SoftAssert();
-        yourSearchPage = new YourSearchPage(browser);
 
+        Reporter.log("Click More filters");
         yourSearchPage.openMoreFilters();
 
         MoreFiltersForm moreFiltersForm = new MoreFiltersForm(browser);
 
+        Reporter.log("Select the number of bedrooms as 5");
         moreFiltersForm.increaseNumberOfBedrooms(BEDROOMS);
+        Reporter.log("Select Pool from the Facilities section.");
         moreFiltersForm.selectPool();
 
+        Reporter.log("Click Show Stays");
         moreFiltersForm.clickOnShowPlacesButton();
 
         int noOfProperties = yourSearchPage.waitForPropertiesListToBeDisplayed();
@@ -161,7 +157,9 @@ public class SearchTest extends AbstractTestNGSpringContextTests {
             String subtitle = yourSearchPage.getPropertyInfoOnCardSecondSubtitle(i);
             String nameOfProperty = yourSearchPage.getPropertyInfoOnCardName(i);
 
-            if (!subtitle.contains("Free cancellation")){
+            Reporter.log("Verify that the properties displayed on the first page have at least the number of selected\n" +
+                    " bedrooms");
+            if (!subtitle.contains("Free cancellation")){ //"'Free cancellation' text replaces the number of bedrooms for some properties"
                 String subtitle2 = yourSearchPage.getPropertyInfoOnCardNoOfBedrooms(i);
                 softAssert.assertTrue(subtitle2.contains("bedrooms"));
                 String[] noOfBedrooms = subtitle2.split(" ");
@@ -173,9 +171,11 @@ public class SearchTest extends AbstractTestNGSpringContextTests {
 
         propertyPage = new PropertyPage(browser);
 
+
         new WindowHandler(browser) {
             @Override
             public void openWindow(WebDriver driver) {
+                Reporter.log("Open the details of the first property");
                 yourSearchPage.selectProperty(1);
 
             }
@@ -197,16 +197,9 @@ public class SearchTest extends AbstractTestNGSpringContextTests {
 
         SoftAssert softAssert = new SoftAssert();
 
-        yourSearchPage = new YourSearchPage(browser);
-        //staysSearchForm = new StaysSearchForm(browser);
-
-        guestsNumber = staysSearchForm.searchStays("2", "1","Rome");
-
-        staysSearchForm.clickSearchButton();
-
         WebDriver driver = yourSearchPage.setUpNewdriver();
 
-        Reporter.log("Verify that the property is displayed on the map and the color of the pin changes ");
+        Reporter.log("Verify that the property is displayed on the map and the color of the pin changes when hovering");
         boolean isChanged = yourSearchPage.checkPinColourChangesOnMapUponHover(driver);
         softAssert.assertTrue(isChanged, "Pin color might not have been changed" );
 
@@ -222,12 +215,16 @@ public class SearchTest extends AbstractTestNGSpringContextTests {
         softAssert.assertEquals(propertyCards.get(0).getScore(), propertyCards.get(0).getScore(), "Card score review not as expected");
 
         yourSearchPage.closeNewDriver(driver);
+
+        softAssert.assertAll();
     }
+/*
+    @AfterMethod(groups = { "test3" }, alwaysRun = false)
+    public void cleanUp() {yourSearchPage.closeNewDriver(driver);}*/
 
 
-
-    //@BeforeMethod(alwaysRun = true)
-    //@Parameters({"adults", "children", "location"})
+    @BeforeMethod(alwaysRun = true)
+    @Parameters({"adults", "children", "location"})
     public void searchOnHomePage(String adults, String children, String location) {
         Reporter.log("Search properties for <<" + adults + ">> adults and <<" + children + " children>> in " + location);
         guestsNumber = staysSearchForm.searchStays(adults, children,location);

@@ -23,14 +23,11 @@ public class MoreFiltersForm {
     public void selectPool(){
         browser.click(SHOW_MORE);
         String showPlacesText = getTextFromShowPlacesButton();
-        //System.out.println(showPlacesText);
+
+        browser.awaitClickable(FEATURES_POOL);
         browser.click(FEATURES_POOL);
         waitUntilNumberOfResultsChanges(showPlacesText);
-       /* String newText;
-        do{
-            newText = getTextFromShowButton();
-        } while (newText.equals(showPlacesText) || newText.equals("loading"));
-        System.out.println(newText);*/
+
     }
 
     public void increaseNumberOfBedrooms(int index){
