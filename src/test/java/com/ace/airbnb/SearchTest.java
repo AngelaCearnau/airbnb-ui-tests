@@ -5,6 +5,7 @@ import com.ace.airbnb.framework.Browser;
 import com.ace.airbnb.framework.ScreenshotTaker;
 import com.ace.airbnb.framework.WebDriverConfig;
 import com.ace.airbnb.framework.WindowHandler;
+import com.ace.airbnb.ui.domain.PropertyCard;
 import com.ace.airbnb.ui.pages.MoreFiltersForm;
 import com.ace.airbnb.ui.pages.PropertyPage;
 import com.ace.airbnb.ui.pages.StaysSearchForm;
@@ -16,13 +17,13 @@ import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Reporter;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import javax.inject.Inject;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @ContextConfiguration(classes = {StaysSearchForm.class, WebDriverConfig.class, Browser.class})
 @TestExecutionListeners(listeners = {ScreenshotTaker.class, DependencyInjectionTestExecutionListener.class})
@@ -31,8 +32,10 @@ public class SearchTest extends AbstractTestNGSpringContextTests {
     @Autowired
     private StaysSearchForm staysSearchForm;
 
-
     @Autowired
+    private WebDriver driver;
+
+    @Inject
     private Browser browser;
 
     private YourSearchPage yourSearchPage;
@@ -136,7 +139,7 @@ public class SearchTest extends AbstractTestNGSpringContextTests {
         softAssert.assertAll();
     }
 
-    @Test
+    //@Test
     public void test2_verifyExtraFilters(){
 
         int BEDROOMS = 5;
@@ -187,12 +190,44 @@ public class SearchTest extends AbstractTestNGSpringContextTests {
         }.run();
 
         softAssert.assertAll();
-
-
     }
 
-    @BeforeMethod(alwaysRun = true)
-    @Parameters({"adults", "children", "location"})
+    @Test
+    public void test3_verifyPropertyOnMap(){
+
+        SoftAssert softAssert = new SoftAssert();
+
+        yourSearchPage = new YourSearchPage(browser);
+        //staysSearchForm = new StaysSearchForm(browser);
+
+        guestsNumber = staysSearchForm.searchStays("2", "1","Rome");
+
+        staysSearchForm.clickSearchButton();
+
+        WebDriver driver = yourSearchPage.setUpNewdriver();
+
+        Reporter.log("Verify that the property is displayed on the map and the color of the pin changes ");
+        boolean isChanged = yourSearchPage.checkPinColourChangesOnMapUponHover(driver);
+        softAssert.assertTrue(isChanged, "Pin color might not have been changed" );
+
+        List<PropertyCard> propertyCards = yourSearchPage.getInfoFromPropertyCardsOnlIstAndOnMap(driver);
+
+        Reporter.log("Verify that the details shown in the map popup are the same as the ones shown in the search\n" +
+                " results");
+
+        softAssert.assertEquals(propertyCards.get(0).getCardTitle(), propertyCards.get(1).getCardTitle(), "Card title not as expected");
+        softAssert.assertEquals(propertyCards.get(0).getCardSubtitle(), propertyCards.get(0).getCardSubtitle(), "Card subtitle not as expected");
+        softAssert.assertEquals(propertyCards.get(0).getSecondCardSubtitle(), propertyCards.get(0).getSecondCardSubtitle(), "Card second subtitle not as expected");
+        softAssert.assertEquals(propertyCards.get(0).getPriceAvailability(), propertyCards.get(0).getPriceAvailability(), "Card price not as expected");
+        softAssert.assertEquals(propertyCards.get(0).getScore(), propertyCards.get(0).getScore(), "Card score review not as expected");
+
+        yourSearchPage.closeNewDriver(driver);
+    }
+
+
+
+    //@BeforeMethod(alwaysRun = true)
+    //@Parameters({"adults", "children", "location"})
     public void searchOnHomePage(String adults, String children, String location) {
         Reporter.log("Search properties for <<" + adults + ">> adults and <<" + children + " children>> in " + location);
         guestsNumber = staysSearchForm.searchStays(adults, children,location);

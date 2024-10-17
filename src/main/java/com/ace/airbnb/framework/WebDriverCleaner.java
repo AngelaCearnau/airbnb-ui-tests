@@ -14,7 +14,7 @@ class WebDriverCleaner {
 
         WebDriver.Timeouts timeouts = manage.timeouts();
 
-        timeouts.implicitlyWait(Duration.ofSeconds(1));
+        timeouts.implicitlyWait(Duration.ofSeconds(2));
         timeouts.scriptTimeout(Duration.ofSeconds(5));
 
         closeRedundantWindows(driver);

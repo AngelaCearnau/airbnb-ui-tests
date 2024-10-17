@@ -6,7 +6,7 @@ import java.util.Set;
 
 class DelegatingWebDriver extends DelegatingSearchContext<WebDriver>
     implements WebDriver, JavascriptExecutor, TakesScreenshot,
-    HasCapabilities, ExplicitWait {
+    HasCapabilities, ExplicitWait, WrapsDriver {
 
     DelegatingWebDriver(WebDriver driver) {
        super(driver);
@@ -96,6 +96,11 @@ class DelegatingWebDriver extends DelegatingSearchContext<WebDriver>
     @Override
     public Capabilities getCapabilities() {
         return ((HasCapabilities) delegate).getCapabilities();
+    }
+
+    @Override
+    public WebDriver getWrappedDriver() {
+        return ((WrapsDriver) delegate).getWrappedDriver();
     }
 
 }

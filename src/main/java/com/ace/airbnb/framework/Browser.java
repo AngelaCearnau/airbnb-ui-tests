@@ -6,6 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 
 import java.util.function.Supplier;
 
+
 public class Browser extends DelegatingWebDriver implements FormElements{
 
 
@@ -19,10 +20,15 @@ public class Browser extends DelegatingWebDriver implements FormElements{
             .perform();
     }
 
-    public void hoverOn(Supplier<By> by) {
+/*    public void hoverOn(Supplier<By> by) {
         new Actions(this)
                 .moveToElement(await(by))
                 .perform();
+    }*/
+
+    public void hoverOn(Supplier<By> by) {
+        Element element = await(by);
+        new Actions(delegate).doubleClick(element).perform();
     }
 
 }

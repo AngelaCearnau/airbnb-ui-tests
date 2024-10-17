@@ -24,11 +24,17 @@ public enum SelectorsYourSearchPage implements Supplier<By> {
     PROPERTIES_DISPLAYED("//div[@itemprop='itemListElement']/parent::div/parent::div/parent::div[@class='']"),
 
     //PROPERTY_CARD("//div[@itemprop='itemListElement']/meta[@content='" + "{placeholder}" + "']/parent::div//div[@data-testid='card-container']"),
+    PROPERTY_CARD_TEST("(//div[@itemprop='itemListElement']/parent::div/parent::div/parent::div[@class='']//div[@data-testid='card-container'])[1]"),
     PROPERTY_CARD("(//div[@itemprop='itemListElement']/parent::div/parent::div/parent::div[@class='']//div[@data-testid='card-container'])[" + PLACEHOLDER + "]"),
 
+
+
+    PROPERTY_CARD_SUBTITLE(PROPERTY_CARD.get(),"//*[@data-testid='listing-card-subtitle'][1]"),
     PROPERTY_CARD_SECOND_SUBTITLE(PROPERTY_CARD.get(),"//*[@data-testid='listing-card-subtitle'][2]"),
     PROPERTY_CARD_SECOND_SUBTITLE_BEDROOMS(PROPERTY_CARD_SECOND_SUBTITLE.get(),"/span[2]"),
     PROPERTY_CARD_INFO_NAME(PROPERTY_CARD.get(),"//*[@data-testid='listing-card-title']"),
+    PRICE_AVAILABILITY(PROPERTY_CARD.get(),"//*[@data-testid='price-availability-row']//div[contains(@style, 'pricing')]//div//span/span"),
+    PROPERTY_CARD_INFO_REVIEW_SCORE(PROPERTY_CARD.get(),"//div[@data-testid='price-availability-row']/following-sibling::div/span/span[3]"),
     //PROPERTY_CARD(PROPERTIES_DISPLAYED.get(), "(//div[@itemprop='itemListElement']/parent::div/parent::div/parent::div[@class='']//div[@data-testid='card-container'])[" + PLACEHOLDER + "]"),
 //'listing-card-title'
     //'listing-card-subtitle'
@@ -42,7 +48,21 @@ public enum SelectorsYourSearchPage implements Supplier<By> {
 
     //amenities
     FEATURES_POOL("//span[text() = 'Pool']"),
-    FILTERS_SHOW_PLACES_BUTTON("//*[@aria-label='Filters']//footer/div/a")
+    FILTERS_SHOW_PLACES_BUTTON("//*[@aria-label='Filters']//footer/div/a"),
+
+    //map
+    PIN_ON_MAP_STYLE("//button[@data-testid='map/markers/BasePillMarker']/div/div"),
+    SELECTED_ON_MAP_BUTTON("//button[@data-testid='map/markers/BasePillMarker']//span[contains(text(),'selected')]/ancestor::button"),
+    SELECTED_ON_MAP_BUTTON_STYLE(SELECTED_ON_MAP_BUTTON.get(),"/div/div"),
+
+    CLICKED_ON_MAP_CARD("//div[@aria-roledescription='map']//div[@data-testid='card-container']"),
+
+    CLICKED_ON_MAP_CARD_TITLE("//*[@data-testid='listing-card-title']"),
+    CLICKED_ON_MAP_CARD_SUBTITLE("//*[@data-testid='listing-card-subtitle'][1]"),
+    CLICKED_ON_MAP_CARD_SECOND_SUBTITLE("//*[@data-testid='listing-card-subtitle'][2]"),
+    CLICKED_ON_MAP_CARD_PRICING("//div[contains(@style, 'pricing')]//div//span/span"),
+    CLICKED_ON_MAP_CARD_SCORE("//div[@data-testid='listing-card-subtitle']/following-sibling::span/span[3]"),
+
 
 ;
 

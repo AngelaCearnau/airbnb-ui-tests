@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
+import javax.inject.Inject;
 import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -15,6 +16,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import static com.ace.airbnb.locators.SelectorsHomePage.*;
+import static com.ace.airbnb.locators.SelectorsYourSearchPage.PROPERTY_CARD_TEST;
 import static com.ace.airbnb.locators.SelectorsYourSearchPage.STAYS_PAGE_HEADING_TEXT;
 
 @ContextConfiguration(classes = {WebDriverConfig.class, Browser.class})
@@ -27,7 +29,7 @@ public class StaysSearchForm {
 
     @Autowired
     private URI baseUrl;
-    @Autowired
+    @Inject
     private com.ace.airbnb.framework.Browser browser;
 
     static Date checkInDate;
@@ -64,6 +66,9 @@ public class StaysSearchForm {
         browser.await(EXPLORE_HEADER_WHERE).click();
         browser.await(EXPLORE_HEADER_WHERE_INPUT).sendKeys(location);
 
+        new WebDriverWait(browser, Duration.ofSeconds(20)).until(
+                webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
+
 
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DATE, 7);
@@ -81,6 +86,8 @@ public class StaysSearchForm {
         browser.await(EXPLORE_HEADER_DATES);
         browser.click(CALENDAR_SELECT_DATE.xpathWithParam(date1));
 
+        new WebDriverWait(browser, Duration.ofSeconds(20)).until(
+                webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
 
         calendar.add(Calendar.DATE, 7);
         checkOutDate = calendar.getTime();
@@ -91,6 +98,8 @@ public class StaysSearchForm {
 
         browser.click(CALENDAR_SELECT_DATE.xpathWithParam(date2));
 
+        new WebDriverWait(browser, Duration.ofSeconds(20)).until(
+                webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
 
         browser.await(EXPLORE_HEADER_GUESTS_INPUT).click();
 
@@ -108,6 +117,8 @@ public class StaysSearchForm {
         }
 
         //System.out.println("Guests: " + guests);
+        new WebDriverWait(browser, Duration.ofSeconds(20)).until(
+                webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
 
         browser.click(EXPLORE_HEADER_WHERE);
         return guests;
@@ -120,7 +131,6 @@ public class StaysSearchForm {
         browser.await(STAYS_PAGE_HEADING_TEXT);
         new WebDriverWait(browser, Duration.ofSeconds(20)).until(
                 webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
-        ;
 
 /*        try {
             Thread.sleep(4000);
@@ -133,6 +143,23 @@ public class StaysSearchForm {
                 webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
         ;
         browser.awaitVisible(FIRST_CARD);*/
-    }
+        }
+
+        public String getUrl(){
+            //System.out.println("url:" + url);
+            return browser.getCurrentUrl();
+        }
+
+
+
+
+        public void hoverOverProperty(int index){
+       /*     new Actions(driver)
+                    .moveToElement(driver.findElement(By.xpath("(//div[@itemprop='itemListElement']/parent::div/parent::div/parent::div[@class='']//div[@data-testid='card-container'])[1]")))
+                    .perform();*/
+
+            //String propWithIndex = String.valueOf(index);
+            browser.hoverOn(PROPERTY_CARD_TEST);
+        }
 
 }
