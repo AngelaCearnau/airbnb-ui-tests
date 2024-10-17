@@ -1,0 +1,172 @@
+<html>
+<head>
+<title>TestNG:  functionality-test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>functionality-test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>4/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Oct 17 21:47:41 EEST 2024</td>
+</tr>
+<tr><td>Total time:</td><td>56 seconds (56113 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.ace.airbnb.SearchTest.test1_verifyAppliedFilters()'><b>test1_verifyAppliedFilters</b><br>Test class: com.ace.airbnb.SearchTest<br/>
+<a href="#Output-1893736577" onClick='toggleBox("Output-1893736577", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1893736577" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1893736577">
+ Test 1: Verify that the results match the search criteria -  applied filters are correct<br/>
+Check that location is: Rome<br/>
+Check number of guests is: 3 guests<br/>
+Check selected time interval is: Oct 24 – 31<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.ace.airbnb.SearchTest@120f102b</td></tr>
+<tr>
+<td title='com.ace.airbnb.SearchTest.test3_verifyPropertyOnMap()'><b>test3_verifyPropertyOnMap</b><br>Test class: com.ace.airbnb.SearchTest<br/>
+<a href="#Output-204339470" onClick='toggleBox("Output-204339470", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-204339470" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-204339470">
+Verify that the property is displayed on the map and the color of the pin changes when hovering<br/>
+Get color of the first pin on page before hover: rgba(255, 255, 255, 1)<br/>
+Performed hover upon first property in the list <br/>
+background color for the pin after hover: rgba(36, 36, 36, 1)<br/>
+Click on the identified property on the map<br/>
+Verify that the details shown in the map popup are the same as the ones shown in the search
+ results<br/>
+</div>
+</td>
+<td></td>
+<td>4</td>
+<td>com.ace.airbnb.SearchTest@120f102b</td></tr>
+<tr>
+<td title='com.ace.airbnb.SearchTest.test2_verifyExtraFilters()'><b>test2_verifyExtraFilters</b><br>Test class: com.ace.airbnb.SearchTest<br/>
+<a href="#Output-253613492" onClick='toggleBox("Output-253613492", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-253613492" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-253613492">
+Click More filters<br/>
+Select the number of bedrooms as 5<br/>
+Select Pool from the Facilities section.<br/>
+Click Show Stays<br/>
+Verify that the properties displayed on the first page have at least the number of selected
+ bedrooms<br/>
+Property Villa Appia Antica-ZEN45 has 5 bedrooms<br/>
+Property Beautiful Villa in Rome - Frascati has 5 bedrooms<br/>
+Property Rental in Rome - Villa La Gallese (Gucci) has 6 bedrooms<br/>
+Property Tenuta 4 pini has 21 bedrooms<br/>
+Property Villa Anson Silj heritage residence for 14 people has 6 bedrooms<br/>
+Property Casale Ciarrocca has 6 bedrooms<br/>
+Property Luxury Villa Appia Antica has 5 bedrooms<br/>
+Property Rome Eur Luxury Villa has 6 bedrooms<br/>
+Open the details of the first property<br/>
+Check that 'Pool' option is displayed for property Villa Appia Antica-ZEN45<br/>
+</div>
+</td>
+<td></td>
+<td>5</td>
+<td>com.ace.airbnb.SearchTest@120f102b</td></tr>
+<tr>
+<td title='com.ace.airbnb.SearchTest.test1_verifyMaxNumberOfGuestOnEachProperty()'><b>test1_verifyMaxNumberOfGuestOnEachProperty</b><br>Test class: com.ace.airbnb.SearchTest<br/>
+<a href="#Output-1712666248" onClick='toggleBox("Output-1712666248", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1712666248" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1712666248">
+ Test 1: Verify that properties displayed on the first page can accommodate at least the selected
+ number of guests<br/>
+Open page for each property and check number of guests is >= than 3<br/>
+Guests allowed for property Casa Stella : 4<br/>
+Guests allowed for property [YOUR HOME in ROME] Modern Apartment : 4<br/>
+Guests allowed for property In a central and peaceful area near Trastevere : 3<br/>
+Guests allowed for property DREAM CASTLE ROME 4 : 3<br/>
+Guests allowed for property [Monteverde] Vittoria's Apartment : 4<br/>
+Guests allowed for property [Appio Latino - Re di Roma] Palmi Roof Apartment : 4<br/>
+Guests allowed for property Penthouse Via dei Coronari - Rome : 4<br/>
+Guests allowed for property Apartment St. Peter's Way - Garden & Pool : 4<br/>
+Guests allowed for property Apartment of the White Rose : 3<br/>
+Guests allowed for property Aki's Flat |Wi-Fi • Terrazzo : 3<br/>
+Guests allowed for property riverside apartment with terrace and garden : 6<br/>
+Guests allowed for property 2 Minutes away from Tiburtina Station Self Checkin : 5<br/>
+Guests allowed for property Leo Home : 3<br/>
+Guests allowed for property Herons bright apartment close Metro Station : 4<br/>
+Guests allowed for property THE COLOSSEUM'S VIEW (sanitized with ozone) : 4<br/>
+Guests allowed for property Elegant and Cozy Flat with Study - Trastevere : 3<br/>
+Guests allowed for property Rome Top Apartament : 3<br/>
+Guests allowed for property Carpegna Park Apartment by Cornelia subway : 4<br/>
+</div>
+</td>
+<td></td>
+<td>28</td>
+<td>com.ace.airbnb.SearchTest@120f102b</td></tr>
+</table><p>
+</body>
+</html>

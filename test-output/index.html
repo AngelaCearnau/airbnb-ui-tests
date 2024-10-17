@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports1.css" rel="stylesheet" id="ultra" />
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" id="retro" disabled="false"/>
+    <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
+      <br/>
+      <span class="top-banner-font-1">1 suite</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" title="Collapse/expand all the suites" class="collapse-all-link">
+          <img src="collapseall.gif" class="collapse-all-icon">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" panel-name="suite-SearchTestSuite" class="navigator-link">
+              <span class="suite-name border-passed">SearchTestSuite</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" panel-name="test-xml-SearchTestSuite" class="navigator-link ">
+                    <span>C:\projects\airbnbtests\XML-Test-Suites\SearchTestSuite.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="testlist-SearchTestSuite" class="navigator-link ">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="group-SearchTestSuite" class="navigator-link ">
+                    <span>1 group</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="times-SearchTestSuite" class="navigator-link ">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="reporter-SearchTestSuite" class="navigator-link ">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="ignored-methods-SearchTestSuite" class="navigator-link ">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="chronological-SearchTestSuite" class="navigator-link ">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">4 methods,   4 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-SearchTestSuite" class="hide-methods passed suite-SearchTestSuite"> (hide)</a> <!-- hide-methods passed suite-SearchTestSuite -->
+                      <a href="#" panel-name="suite-SearchTestSuite" class="show-methods passed suite-SearchTestSuite"> (show)</a> <!-- show-methods passed suite-SearchTestSuite -->
+                    </span>
+                    <div class="method-list-content passed suite-SearchTestSuite">
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-SearchTestSuite" title="com.ace.airbnb.SearchTest" class="method navigator-link" hash-for-method="test1_verifyAppliedFilters">test1_verifyAppliedFilters</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-SearchTestSuite" title="com.ace.airbnb.SearchTest" class="method navigator-link" hash-for-method="test1_verifyMaxNumberOfGuestOnEachProperty">test1_verifyMaxNumberOfGuestOnEachProperty</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-SearchTestSuite" title="com.ace.airbnb.SearchTest" class="method navigator-link" hash-for-method="test2_verifyExtraFilters">test2_verifyExtraFilters</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-SearchTestSuite" title="com.ace.airbnb.SearchTest" class="method navigator-link" hash-for-method="test3_verifyPropertyOnMap">test3_verifyPropertyOnMap</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-SearchTestSuite -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-SearchTestSuite" class="panel SearchTestSuite">
+          <div class="suite-SearchTestSuite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ace.airbnb.SearchTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="test1_verifyAppliedFilters">
+                  </a> <!-- test1_verifyAppliedFilters -->
+                  <span class="method-name">test1_verifyAppliedFilters</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test1_verifyMaxNumberOfGuestOnEachProperty">
+                  </a> <!-- test1_verifyMaxNumberOfGuestOnEachProperty -->
+                  <span class="method-name">test1_verifyMaxNumberOfGuestOnEachProperty</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test2_verifyExtraFilters">
+                  </a> <!-- test2_verifyExtraFilters -->
+                  <span class="method-name">test2_verifyExtraFilters</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test3_verifyPropertyOnMap">
+                  </a> <!-- test3_verifyPropertyOnMap -->
+                  <span class="method-name">test3_verifyPropertyOnMap</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-SearchTestSuite-class-passed -->
+        </div> <!-- panel SearchTestSuite -->
+        <div panel-name="test-xml-SearchTestSuite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">C:\projects\airbnbtests\XML-Test-Suites\SearchTestSuite.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite name=&quot;SearchTestSuite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
+  &lt;parameter name=&quot;children&quot; value=&quot;1&quot;/&gt;
+  &lt;parameter name=&quot;adults&quot; value=&quot;2&quot;/&gt;
+  &lt;parameter name=&quot;location&quot; value=&quot;Rome, Italy&quot;/&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;functionality-test&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.ace.airbnb.SearchTest&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- functionality-test --&gt;
+&lt;/suite&gt; &lt;!-- SearchTestSuite --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-SearchTestSuite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for SearchTestSuite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">functionality-test (1 class)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-SearchTestSuite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for SearchTestSuite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="test-group">
+              <span class="test-group-name">test3</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">test3_verifyPropertyOnMap</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-SearchTestSuite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for SearchTestSuite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_SearchTestSuite');
+function tableData_SearchTestSuite() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(4);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'test1_verifyMaxNumberOfGuestOnEachProperty')
+data.setCell(0, 2, 'com.ace.airbnb.SearchTest')
+data.setCell(0, 3, 28430);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'test2_verifyExtraFilters')
+data.setCell(1, 2, 'com.ace.airbnb.SearchTest')
+data.setCell(1, 3, 5933);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'test3_verifyPropertyOnMap')
+data.setCell(2, 2, 'com.ace.airbnb.SearchTest')
+data.setCell(2, 3, 4293);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'test1_verifyAppliedFilters')
+data.setCell(3, 2, 'com.ace.airbnb.SearchTest')
+data.setCell(3, 3, 466);
+window.suiteTableData['SearchTestSuite']= { tableData: data, tableDiv: 'times-div-SearchTestSuite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 39 seconds</span>
+              <div id="times-div-SearchTestSuite">
+              </div> <!-- times-div-SearchTestSuite -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-SearchTestSuite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for SearchTestSuite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">test1_verifyAppliedFilters</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"> Test 1: Verify that the results match the search criteria -  applied filters are correct</span>
+                <span class="reporter-method-output">Check that location is: Rome</span>
+                <span class="reporter-method-output">Check number of guests is: 3 guests</span>
+                <span class="reporter-method-output">Check selected time interval is: Oct 24 – 31</span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">test3_verifyPropertyOnMap</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output">Verify that the property is displayed on the map and the color of the pin changes when hovering</span>
+                <span class="reporter-method-output">Get color of the first pin on page before hover: rgba(255, 255, 255, 1)</span>
+                <span class="reporter-method-output">Performed hover upon first property in the list </span>
+                <span class="reporter-method-output">background color for the pin after hover: rgba(36, 36, 36, 1)</span>
+                <span class="reporter-method-output">Click on the identified property on the map</span>
+                <span class="reporter-method-output">Verify that the details shown in the map popup are the same as the ones shown in the search
+ results</span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">test2_verifyExtraFilters</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output">Click More filters</span>
+                <span class="reporter-method-output">Select the number of bedrooms as 5</span>
+                <span class="reporter-method-output">Select Pool from the Facilities section.</span>
+                <span class="reporter-method-output">Click Show Stays</span>
+                <span class="reporter-method-output">Verify that the properties displayed on the first page have at least the number of selected
+ bedrooms</span>
+                <span class="reporter-method-output">Property Villa Appia Antica-ZEN45 has 5 bedrooms</span>
+                <span class="reporter-method-output">Property Beautiful Villa in Rome - Frascati has 5 bedrooms</span>
+                <span class="reporter-method-output">Property Rental in Rome - Villa La Gallese (Gucci) has 6 bedrooms</span>
+                <span class="reporter-method-output">Property Tenuta 4 pini has 21 bedrooms</span>
+                <span class="reporter-method-output">Property Villa Anson Silj heritage residence for 14 people has 6 bedrooms</span>
+                <span class="reporter-method-output">Property Casale Ciarrocca has 6 bedrooms</span>
+                <span class="reporter-method-output">Property Luxury Villa Appia Antica has 5 bedrooms</span>
+                <span class="reporter-method-output">Property Rome Eur Luxury Villa has 6 bedrooms</span>
+                <span class="reporter-method-output">Open the details of the first property</span>
+                <span class="reporter-method-output">Check that 'Pool' option is displayed for property Villa Appia Antica-ZEN45</span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">test1_verifyMaxNumberOfGuestOnEachProperty</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"> Test 1: Verify that properties displayed on the first page can accommodate at least the selected
+ number of guests</span>
+                <span class="reporter-method-output">Open page for each property and check number of guests is >= than 3</span>
+                <span class="reporter-method-output">Guests allowed for property Casa Stella : 4</span>
+                <span class="reporter-method-output">Guests allowed for property [YOUR HOME in ROME] Modern Apartment : 4</span>
+                <span class="reporter-method-output">Guests allowed for property In a central and peaceful area near Trastevere : 3</span>
+                <span class="reporter-method-output">Guests allowed for property DREAM CASTLE ROME 4 : 3</span>
+                <span class="reporter-method-output">Guests allowed for property [Monteverde] Vittoria's Apartment : 4</span>
+                <span class="reporter-method-output">Guests allowed for property [Appio Latino - Re di Roma] Palmi Roof Apartment : 4</span>
+                <span class="reporter-method-output">Guests allowed for property Penthouse Via dei Coronari - Rome : 4</span>
+                <span class="reporter-method-output">Guests allowed for property Apartment St. Peter's Way - Garden & Pool : 4</span>
+                <span class="reporter-method-output">Guests allowed for property Apartment of the White Rose : 3</span>
+                <span class="reporter-method-output">Guests allowed for property Aki's Flat |Wi-Fi • Terrazzo : 3</span>
+                <span class="reporter-method-output">Guests allowed for property riverside apartment with terrace and garden : 6</span>
+                <span class="reporter-method-output">Guests allowed for property 2 Minutes away from Tiburtina Station Self Checkin : 5</span>
+                <span class="reporter-method-output">Guests allowed for property Leo Home : 3</span>
+                <span class="reporter-method-output">Guests allowed for property Herons bright apartment close Metro Station : 4</span>
+                <span class="reporter-method-output">Guests allowed for property THE COLOSSEUM'S VIEW (sanitized with ozone) : 4</span>
+                <span class="reporter-method-output">Guests allowed for property Elegant and Cozy Flat with Study - Trastevere : 3</span>
+                <span class="reporter-method-output">Guests allowed for property Rome Top Apartament : 3</span>
+                <span class="reporter-method-output">Guests allowed for property Carpegna Park Apartment by Cornelia subway : 4</span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-SearchTestSuite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-SearchTestSuite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ace.airbnb.SearchTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">springTestContextBeforeTestClass</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-class before">
+                <span class="method-name">springTestContextPrepareTestInstance</span>
+                <span class="method-start">6 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-method before">
+                <span class="method-name">springTestContextBeforeTestMethod(public void com.ace.airbnb.SearchTest.test1_verifyAppliedFilters())</span>
+                <span class="method-start">1100 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">searchOnHomePage(2, 1, Rome, Italy)</span>
+                <span class="method-start">1101 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">test1_verifyAppliedFilters</span>
+                <span class="method-start">6075 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">springTestContextAfterTestMethod(public void com.ace.airbnb.SearchTest.test1_verifyAppliedFilters())</span>
+                <span class="method-start">6543 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">springTestContextBeforeTestMethod(public void com.ace.airbnb.SearchTest.test1_verifyMaxNumberOfGuestOnEachProperty())</span>
+                <span class="method-start">6998 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">searchOnHomePage(2, 1, Rome, Italy)</span>
+                <span class="method-start">6999 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">test1_verifyMaxNumberOfGuestOnEachProperty</span>
+                <span class="method-start">10092 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">springTestContextAfterTestMethod(public void com.ace.airbnb.SearchTest.test1_verifyMaxNumberOfGuestOnEachProperty())</span>
+                <span class="method-start">38523 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">searchOnHomePage(2, 1, Rome, Italy)</span>
+                <span class="method-start">38870 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">springTestContextBeforeTestMethod(public void com.ace.airbnb.SearchTest.test2_verifyExtraFilters())</span>
+                <span class="method-start">38870 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">test2_verifyExtraFilters</span>
+                <span class="method-start">41751 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">springTestContextAfterTestMethod(public void com.ace.airbnb.SearchTest.test2_verifyExtraFilters())</span>
+                <span class="method-start">47685 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">springTestContextBeforeTestMethod(public void com.ace.airbnb.SearchTest.test3_verifyPropertyOnMap())</span>
+                <span class="method-start">48043 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">searchOnHomePage(2, 1, Rome, Italy)</span>
+                <span class="method-start">48044 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">test3_verifyPropertyOnMap</span>
+                <span class="method-start">51299 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">springTestContextAfterTestMethod(public void com.ace.airbnb.SearchTest.test3_verifyPropertyOnMap())</span>
+                <span class="method-start">55593 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-class after">
+                <span class="method-name">springTestContextAfterTestClass</span>
+                <span class="method-start">55920 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-test after">
+                <span class="method-name">cleanUp</span>
+                <span class="method-start">55921 ms</span>
+              </div> <!-- configuration-test after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+<script type="text/javascript" src="testng-reports2.js"></script>
+</html>

@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+    <line>
+      <![CDATA[Search properties for <<2>> adults and <<1 children>> in Rome, Italy]]>
+    </line>
+    <line>
+      <![CDATA[ Test 1: Verify that the results match the search criteria -  applied filters are correct]]>
+    </line>
+    <line>
+      <![CDATA[Check that location is: Rome]]>
+    </line>
+    <line>
+      <![CDATA[Check number of guests is: 3 guests]]>
+    </line>
+    <line>
+      <![CDATA[Check selected time interval is: Oct 24 – 31]]>
+    </line>
+    <line>
+      <![CDATA[Search properties for <<2>> adults and <<1 children>> in Rome, Italy]]>
+    </line>
+    <line>
+      <![CDATA[ Test 1: Verify that properties displayed on the first page can accommodate at least the selected
+ number of guests]]>
+    </line>
+    <line>
+      <![CDATA[Open page for each property and check number of guests is >= than 3]]>
+    </line>
+    <line>
+      <![CDATA[Guests allowed for property Casa Stella : 4]]>
+    </line>
+    <line>
+      <![CDATA[Guests allowed for property [YOUR HOME in ROME] Modern Apartment : 4]]>
+    </line>
+    <line>
+      <![CDATA[Guests allowed for property In a central and peaceful area near Trastevere : 3]]>
+    </line>
+    <line>
+      <![CDATA[Guests allowed for property DREAM CASTLE ROME 4 : 3]]>
+    </line>
+    <line>
+      <![CDATA[Guests allowed for property [Monteverde] Vittoria's Apartment : 4]]>
+    </line>
+    <line>
+      <![CDATA[Guests allowed for property [Appio Latino - Re di Roma] Palmi Roof Apartment : 4]]>
+    </line>
+    <line>
+      <![CDATA[Guests allowed for property Penthouse Via dei Coronari - Rome : 4]]>
+    </line>
+    <line>
+      <![CDATA[Guests allowed for property Apartment St. Peter's Way - Garden & Pool : 4]]>
+    </line>
+    <line>
+      <![CDATA[Guests allowed for property Apartment of the White Rose : 3]]>
+    </line>
+    <line>
+      <![CDATA[Guests allowed for property Aki's Flat |Wi-Fi • Terrazzo : 3]]>
+    </line>
+    <line>
+      <![CDATA[Guests allowed for property riverside apartment with terrace and garden : 6]]>
+    </line>
+    <line>
+      <![CDATA[Guests allowed for property 2 Minutes away from Tiburtina Station Self Checkin : 5]]>
+    </line>
+    <line>
+      <![CDATA[Guests allowed for property Leo Home : 3]]>
+    </line>
+    <line>
+      <![CDATA[Guests allowed for property Herons bright apartment close Metro Station : 4]]>
+    </line>
+    <line>
+      <![CDATA[Guests allowed for property THE COLOSSEUM'S VIEW (sanitized with ozone) : 4]]>
+    </line>
+    <line>
+      <![CDATA[Guests allowed for property Elegant and Cozy Flat with Study - Trastevere : 3]]>
+    </line>
+    <line>
+      <![CDATA[Guests allowed for property Rome Top Apartament : 3]]>
+    </line>
+    <line>
+      <![CDATA[Guests allowed for property Carpegna Park Apartment by Cornelia subway : 4]]>
+    </line>
+    <line>
+      <![CDATA[Search properties for <<2>> adults and <<1 children>> in Rome, Italy]]>
+    </line>
+    <line>
+      <![CDATA[Click More filters]]>
+    </line>
+    <line>
+      <![CDATA[Select the number of bedrooms as 5]]>
+    </line>
+    <line>
+      <![CDATA[Select Pool from the Facilities section.]]>
+    </line>
+    <line>
+      <![CDATA[Click Show Stays]]>
+    </line>
+    <line>
+      <![CDATA[Verify that the properties displayed on the first page have at least the number of selected
+ bedrooms]]>
+    </line>
+    <line>
+      <![CDATA[Property Villa Appia Antica-ZEN45 has 5 bedrooms]]>
+    </line>
+    <line>
+      <![CDATA[Property Beautiful Villa in Rome - Frascati has 5 bedrooms]]>
+    </line>
+    <line>
+      <![CDATA[Property Rental in Rome - Villa La Gallese (Gucci) has 6 bedrooms]]>
+    </line>
+    <line>
+      <![CDATA[Property Tenuta 4 pini has 21 bedrooms]]>
+    </line>
+    <line>
+      <![CDATA[Property Villa Anson Silj heritage residence for 14 people has 6 bedrooms]]>
+    </line>
+    <line>
+      <![CDATA[Property Casale Ciarrocca has 6 bedrooms]]>
+    </line>
+    <line>
+      <![CDATA[Property Luxury Villa Appia Antica has 5 bedrooms]]>
+    </line>
+    <line>
+      <![CDATA[Property Rome Eur Luxury Villa has 6 bedrooms]]>
+    </line>
+    <line>
+      <![CDATA[Open the details of the first property]]>
+    </line>
+    <line>
+      <![CDATA[Check that 'Pool' option is displayed for property Villa Appia Antica-ZEN45]]>
+    </line>
+    <line>
+      <![CDATA[Search properties for <<2>> adults and <<1 children>> in Rome, Italy]]>
+    </line>
+    <line>
+      <![CDATA[Verify that the property is displayed on the map and the color of the pin changes when hovering]]>
+    </line>
+    <line>
+      <![CDATA[Get color of the first pin on page before hover: rgba(255, 255, 255, 1)]]>
+    </line>
+    <line>
+      <![CDATA[Performed hover upon first property in the list ]]>
+    </line>
+    <line>
+      <![CDATA[background color for the pin after hover: rgba(36, 36, 36, 1)]]>
+    </line>
+    <line>
+      <![CDATA[Click on the identified property on the map]]>
+    </line>
+    <line>
+      <![CDATA[Verify that the details shown in the map popup are the same as the ones shown in the search
+ results]]>
+    </line>
+  </reporter-output>
+  <suite started-at="2024-10-17T21:47:41 EEST" name="SearchTestSuite" finished-at="2024-10-17T21:48:37 EEST" duration-ms="56113">
+    <groups>
+      <group name="test3">
+        <method signature="SearchTest.test3_verifyPropertyOnMap()[pri:0, instance:com.ace.airbnb.SearchTest@120f102b]" name="test3_verifyPropertyOnMap" class="com.ace.airbnb.SearchTest"/>
+      </group> <!-- test3 -->
+    </groups>
+    <test started-at="2024-10-17T21:47:41 EEST" name="functionality-test" finished-at="2024-10-17T21:48:37 EEST" duration-ms="56113">
+      <class name="com.ace.airbnb.SearchTest">
+        <test-method is-config="true" signature="springTestContextBeforeTestClass()[pri:0, instance:com.ace.airbnb.SearchTest@120f102b]" started-at="2024-10-17T21:47:41 EEST" name="springTestContextBeforeTestClass" finished-at="2024-10-17T21:47:41 EEST" duration-ms="6" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method is-config="true" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.ace.airbnb.SearchTest@120f102b]" started-at="2024-10-17T21:47:41 EEST" name="springTestContextPrepareTestInstance" finished-at="2024-10-17T21:47:42 EEST" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" duration-ms="1088" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.ace.airbnb.SearchTest@120f102b]" started-at="2024-10-17T21:47:42 EEST" name="springTestContextBeforeTestMethod" finished-at="2024-10-17T21:47:42 EEST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.ace.airbnb.SearchTest.test1_verifyAppliedFilters()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method is-config="true" signature="searchOnHomePage(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.ace.airbnb.SearchTest@120f102b]" started-at="2024-10-17T21:47:42 EEST" name="searchOnHomePage" finished-at="2024-10-17T21:47:47 EEST" duration-ms="4974" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Rome, Italy]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Search properties for <<2>> adults and <<1 children>> in Rome, Italy]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- searchOnHomePage -->
+        <test-method signature="test1_verifyAppliedFilters()[pri:0, instance:com.ace.airbnb.SearchTest@120f102b]" started-at="2024-10-17T21:47:47 EEST" name="test1_verifyAppliedFilters" finished-at="2024-10-17T21:47:47 EEST" duration-ms="466" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[ Test 1: Verify that the results match the search criteria -  applied filters are correct]]>
+            </line>
+            <line>
+              <![CDATA[Check that location is: Rome]]>
+            </line>
+            <line>
+              <![CDATA[Check number of guests is: 3 guests]]>
+            </line>
+            <line>
+              <![CDATA[Check selected time interval is: Oct 24 – 31]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- test1_verifyAppliedFilters -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.ace.airbnb.SearchTest@120f102b]" started-at="2024-10-17T21:47:47 EEST" name="springTestContextAfterTestMethod" finished-at="2024-10-17T21:47:48 EEST" duration-ms="454" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.ace.airbnb.SearchTest.test1_verifyAppliedFilters()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.ace.airbnb.SearchTest@120f102b]" started-at="2024-10-17T21:47:48 EEST" name="springTestContextBeforeTestMethod" finished-at="2024-10-17T21:47:48 EEST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.ace.airbnb.SearchTest.test1_verifyMaxNumberOfGuestOnEachProperty()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method is-config="true" signature="searchOnHomePage(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.ace.airbnb.SearchTest@120f102b]" started-at="2024-10-17T21:47:48 EEST" name="searchOnHomePage" finished-at="2024-10-17T21:47:51 EEST" duration-ms="3093" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Rome, Italy]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Search properties for <<2>> adults and <<1 children>> in Rome, Italy]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- searchOnHomePage -->
+        <test-method signature="test1_verifyMaxNumberOfGuestOnEachProperty()[pri:0, instance:com.ace.airbnb.SearchTest@120f102b]" started-at="2024-10-17T21:47:51 EEST" name="test1_verifyMaxNumberOfGuestOnEachProperty" finished-at="2024-10-17T21:48:19 EEST" duration-ms="28430" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[ Test 1: Verify that properties displayed on the first page can accommodate at least the selected
+ number of guests]]>
+            </line>
+            <line>
+              <![CDATA[Open page for each property and check number of guests is >= than 3]]>
+            </line>
+            <line>
+              <![CDATA[Guests allowed for property Casa Stella : 4]]>
+            </line>
+            <line>
+              <![CDATA[Guests allowed for property [YOUR HOME in ROME] Modern Apartment : 4]]>
+            </line>
+            <line>
+              <![CDATA[Guests allowed for property In a central and peaceful area near Trastevere : 3]]>
+            </line>
+            <line>
+              <![CDATA[Guests allowed for property DREAM CASTLE ROME 4 : 3]]>
+            </line>
+            <line>
+              <![CDATA[Guests allowed for property [Monteverde] Vittoria's Apartment : 4]]>
+            </line>
+            <line>
+              <![CDATA[Guests allowed for property [Appio Latino - Re di Roma] Palmi Roof Apartment : 4]]>
+            </line>
+            <line>
+              <![CDATA[Guests allowed for property Penthouse Via dei Coronari - Rome : 4]]>
+            </line>
+            <line>
+              <![CDATA[Guests allowed for property Apartment St. Peter's Way - Garden & Pool : 4]]>
+            </line>
+            <line>
+              <![CDATA[Guests allowed for property Apartment of the White Rose : 3]]>
+            </line>
+            <line>
+              <![CDATA[Guests allowed for property Aki's Flat |Wi-Fi • Terrazzo : 3]]>
+            </line>
+            <line>
+              <![CDATA[Guests allowed for property riverside apartment with terrace and garden : 6]]>
+            </line>
+            <line>
+              <![CDATA[Guests allowed for property 2 Minutes away from Tiburtina Station Self Checkin : 5]]>
+            </line>
+            <line>
+              <![CDATA[Guests allowed for property Leo Home : 3]]>
+            </line>
+            <line>
+              <![CDATA[Guests allowed for property Herons bright apartment close Metro Station : 4]]>
+            </line>
+            <line>
+              <![CDATA[Guests allowed for property THE COLOSSEUM'S VIEW (sanitized with ozone) : 4]]>
+            </line>
+            <line>
+              <![CDATA[Guests allowed for property Elegant and Cozy Flat with Study - Trastevere : 3]]>
+            </line>
+            <line>
+              <![CDATA[Guests allowed for property Rome Top Apartament : 3]]>
+            </line>
+            <line>
+              <![CDATA[Guests allowed for property Carpegna Park Apartment by Cornelia subway : 4]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- test1_verifyMaxNumberOfGuestOnEachProperty -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.ace.airbnb.SearchTest@120f102b]" started-at="2024-10-17T21:48:19 EEST" name="springTestContextAfterTestMethod" finished-at="2024-10-17T21:48:20 EEST" duration-ms="346" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.ace.airbnb.SearchTest.test1_verifyMaxNumberOfGuestOnEachProperty()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="searchOnHomePage(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.ace.airbnb.SearchTest@120f102b]" started-at="2024-10-17T21:48:20 EEST" name="searchOnHomePage" finished-at="2024-10-17T21:48:23 EEST" duration-ms="2880" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Rome, Italy]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Search properties for <<2>> adults and <<1 children>> in Rome, Italy]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- searchOnHomePage -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.ace.airbnb.SearchTest@120f102b]" started-at="2024-10-17T21:48:20 EEST" name="springTestContextBeforeTestMethod" finished-at="2024-10-17T21:48:20 EEST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.ace.airbnb.SearchTest.test2_verifyExtraFilters()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method signature="test2_verifyExtraFilters()[pri:0, instance:com.ace.airbnb.SearchTest@120f102b]" started-at="2024-10-17T21:48:23 EEST" name="test2_verifyExtraFilters" finished-at="2024-10-17T21:48:29 EEST" duration-ms="5933" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[Click More filters]]>
+            </line>
+            <line>
+              <![CDATA[Select the number of bedrooms as 5]]>
+            </line>
+            <line>
+              <![CDATA[Select Pool from the Facilities section.]]>
+            </line>
+            <line>
+              <![CDATA[Click Show Stays]]>
+            </line>
+            <line>
+              <![CDATA[Verify that the properties displayed on the first page have at least the number of selected
+ bedrooms]]>
+            </line>
+            <line>
+              <![CDATA[Property Villa Appia Antica-ZEN45 has 5 bedrooms]]>
+            </line>
+            <line>
+              <![CDATA[Property Beautiful Villa in Rome - Frascati has 5 bedrooms]]>
+            </line>
+            <line>
+              <![CDATA[Property Rental in Rome - Villa La Gallese (Gucci) has 6 bedrooms]]>
+            </line>
+            <line>
+              <![CDATA[Property Tenuta 4 pini has 21 bedrooms]]>
+            </line>
+            <line>
+              <![CDATA[Property Villa Anson Silj heritage residence for 14 people has 6 bedrooms]]>
+            </line>
+            <line>
+              <![CDATA[Property Casale Ciarrocca has 6 bedrooms]]>
+            </line>
+            <line>
+              <![CDATA[Property Luxury Villa Appia Antica has 5 bedrooms]]>
+            </line>
+            <line>
+              <![CDATA[Property Rome Eur Luxury Villa has 6 bedrooms]]>
+            </line>
+            <line>
+              <![CDATA[Open the details of the first property]]>
+            </line>
+            <line>
+              <![CDATA[Check that 'Pool' option is displayed for property Villa Appia Antica-ZEN45]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- test2_verifyExtraFilters -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.ace.airbnb.SearchTest@120f102b]" started-at="2024-10-17T21:48:29 EEST" name="springTestContextAfterTestMethod" finished-at="2024-10-17T21:48:29 EEST" duration-ms="357" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.ace.airbnb.SearchTest.test2_verifyExtraFilters()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.ace.airbnb.SearchTest@120f102b]" started-at="2024-10-17T21:48:29 EEST" name="springTestContextBeforeTestMethod" finished-at="2024-10-17T21:48:29 EEST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.ace.airbnb.SearchTest.test3_verifyPropertyOnMap()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method is-config="true" signature="searchOnHomePage(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.ace.airbnb.SearchTest@120f102b]" started-at="2024-10-17T21:48:29 EEST" name="searchOnHomePage" finished-at="2024-10-17T21:48:32 EEST" duration-ms="3254" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Rome, Italy]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Search properties for <<2>> adults and <<1 children>> in Rome, Italy]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- searchOnHomePage -->
+        <test-method signature="test3_verifyPropertyOnMap()[pri:0, instance:com.ace.airbnb.SearchTest@120f102b]" started-at="2024-10-17T21:48:32 EEST" name="test3_verifyPropertyOnMap" finished-at="2024-10-17T21:48:36 EEST" duration-ms="4293" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[Verify that the property is displayed on the map and the color of the pin changes when hovering]]>
+            </line>
+            <line>
+              <![CDATA[Get color of the first pin on page before hover: rgba(255, 255, 255, 1)]]>
+            </line>
+            <line>
+              <![CDATA[Performed hover upon first property in the list ]]>
+            </line>
+            <line>
+              <![CDATA[background color for the pin after hover: rgba(36, 36, 36, 1)]]>
+            </line>
+            <line>
+              <![CDATA[Click on the identified property on the map]]>
+            </line>
+            <line>
+              <![CDATA[Verify that the details shown in the map popup are the same as the ones shown in the search
+ results]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- test3_verifyPropertyOnMap -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.ace.airbnb.SearchTest@120f102b]" started-at="2024-10-17T21:48:36 EEST" name="springTestContextAfterTestMethod" finished-at="2024-10-17T21:48:37 EEST" duration-ms="326" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.ace.airbnb.SearchTest.test3_verifyPropertyOnMap()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="springTestContextAfterTestClass()[pri:0, instance:com.ace.airbnb.SearchTest@120f102b]" started-at="2024-10-17T21:48:37 EEST" name="springTestContextAfterTestClass" finished-at="2024-10-17T21:48:37 EEST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:com.ace.airbnb.SearchTest@120f102b]" started-at="2024-10-17T21:48:37 EEST" name="cleanUp" finished-at="2024-10-17T21:48:37 EEST" duration-ms="180" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- com.ace.airbnb.SearchTest -->
+    </test> <!-- functionality-test -->
+  </suite> <!-- SearchTestSuite -->
+</testng-results>
