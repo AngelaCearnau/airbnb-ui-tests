@@ -203,7 +203,7 @@ public class YourSearchPage {
 
         List<WebElement> pins = driver.findElements(PIN_ON_MAP_STYLE.get());
         String pinColor = pins.get(1).getCssValue("background-color");
-        Reporter.log("Get color of the first pin on page before hover " + pinColor);
+        Reporter.log("Get color of the first pin on page before hover: " + pinColor);
 
 
         //perform hover over first property in list
@@ -217,7 +217,7 @@ public class YourSearchPage {
         WebElement element = driver.findElement(SELECTED_ON_MAP_BUTTON_STYLE.get());
 
         String selectedPinColor = element.getCssValue("background-color");
-        Reporter.log("background color for the pin after hover" + selectedPinColor);
+        Reporter.log("background color for the pin after hover: " + selectedPinColor);
 
         return !selectedPinColor.equals(pinColor);
 

@@ -62,32 +62,14 @@ public class SearchTest extends AbstractTestNGSpringContextTests {
         softAssert.assertTrue(yourSearchPage.getNoOfGuestFromFilter().equals(guestsNumberString), "Guests information in filter not as expected");
         String timeInterval = getDateFormatForLittleSearchFilter();
         Reporter.log("Check selected time interval is: " + timeInterval);
+        System.out.println(yourSearchPage.getDateFromFilter());
 
         softAssert.assertTrue(yourSearchPage.getDateFromFilter().equals(timeInterval), "Selected dates in filter not as expected");
         softAssert.assertAll();
 
     }
 
-    private String getDateFormatForLittleSearchFilter(){
 
-        Date checkInDate = StaysSearchForm.getCheckInDate();
-        SimpleDateFormat formatForLittleFilter = new SimpleDateFormat("MMM dd");
-        String date1 = formatForLittleFilter.format(checkInDate);
-
-
-        Date checkOutDate = StaysSearchForm.getCheckOutDate();
-        String date2 = formatForLittleFilter.format(checkOutDate);
-
-
-        if (StaysSearchForm.getCheckInMonth().contains(StaysSearchForm.getCheckOutMonth())){
-            String dayOfMonth = date2.substring(4);
-            return date1 + " – " + dayOfMonth;
-        } else{
-            return date1 + " – " + date2;
-        }
-
-
-    }
 
     //@Test(dependsOnMethods = { "test1_verifyAppliedFilters" })
     @Test
@@ -98,18 +80,11 @@ public class SearchTest extends AbstractTestNGSpringContextTests {
 
         propertyPage = new PropertyPage(browser);
 
-        int totalNumberOfCards;
-        int j=0;
-        do{
-            j++;
-            totalNumberOfCards  = yourSearchPage.getPropertiesOnFirstPage().size();
-            if (totalNumberOfCards>6){
-                break;
-            }
-        } while (j<30);
+        waitForCardListToLoad();
+        int totalNumberOfCards  = yourSearchPage.getPropertiesOnFirstPage().size();
 
         Reporter.log("Open page for each property and check number of guests is >= than " + guestsNumber);
-        //System.out.println("totalNumberOfCards" + totalNumberOfCards);
+
         SoftAssert softAssert = new SoftAssert();
         for (int i=1;i<=totalNumberOfCards;i++){
                 int finalI = i;
@@ -152,13 +127,13 @@ public class SearchTest extends AbstractTestNGSpringContextTests {
         moreFiltersForm.clickOnShowPlacesButton();
 
         int noOfProperties = yourSearchPage.waitForPropertiesListToBeDisplayed();
+        Reporter.log("Verify that the properties displayed on the first page have at least the number of selected\n" +
+                " bedrooms");
 
         for (int i =1; i<=noOfProperties; i++){
             String subtitle = yourSearchPage.getPropertyInfoOnCardSecondSubtitle(i);
-            String nameOfProperty = yourSearchPage.getPropertyInfoOnCardName(i);
+            String nameOfProperty = yourSearchPage.getPropertyInfoOnCardSubtitle(i);
 
-            Reporter.log("Verify that the properties displayed on the first page have at least the number of selected\n" +
-                    " bedrooms");
             if (!subtitle.contains("Free cancellation")){ //"'Free cancellation' text replaces the number of bedrooms for some properties"
                 String subtitle2 = yourSearchPage.getPropertyInfoOnCardNoOfBedrooms(i);
                 softAssert.assertTrue(subtitle2.contains("bedrooms"));
@@ -192,12 +167,12 @@ public class SearchTest extends AbstractTestNGSpringContextTests {
         softAssert.assertAll();
     }
 
-    @Test
+    @Test(groups = { "test3" })
     public void test3_verifyPropertyOnMap(){
 
         SoftAssert softAssert = new SoftAssert();
 
-        WebDriver driver = yourSearchPage.setUpNewdriver();
+        driver = yourSearchPage.setUpNewdriver();
 
         Reporter.log("Verify that the property is displayed on the map and the color of the pin changes when hovering");
         boolean isChanged = yourSearchPage.checkPinColourChangesOnMapUponHover(driver);
@@ -209,18 +184,22 @@ public class SearchTest extends AbstractTestNGSpringContextTests {
                 " results");
 
         softAssert.assertEquals(propertyCards.get(0).getCardTitle(), propertyCards.get(1).getCardTitle(), "Card title not as expected");
-        softAssert.assertEquals(propertyCards.get(0).getCardSubtitle(), propertyCards.get(0).getCardSubtitle(), "Card subtitle not as expected");
-        softAssert.assertEquals(propertyCards.get(0).getSecondCardSubtitle(), propertyCards.get(0).getSecondCardSubtitle(), "Card second subtitle not as expected");
-        softAssert.assertEquals(propertyCards.get(0).getPriceAvailability(), propertyCards.get(0).getPriceAvailability(), "Card price not as expected");
-        softAssert.assertEquals(propertyCards.get(0).getScore(), propertyCards.get(0).getScore(), "Card score review not as expected");
-
-        yourSearchPage.closeNewDriver(driver);
+        softAssert.assertEquals(propertyCards.get(0).getCardSubtitle(), propertyCards.get(1).getCardSubtitle(), "Card subtitle not as expected");
+        softAssert.assertEquals(propertyCards.get(0).getSecondCardSubtitle(), propertyCards.get(1).getSecondCardSubtitle(), "Card second subtitle not as expected");
+        softAssert.assertEquals(propertyCards.get(0).getPriceAvailability(), propertyCards.get(1).getPriceAvailability(), "Card price not as expected");
+        softAssert.assertEquals(propertyCards.get(0).getScore(), propertyCards.get(1).getScore(), "Card score review not as expected");
 
         softAssert.assertAll();
     }
-/*
-    @AfterMethod(groups = { "test3" }, alwaysRun = false)
-    public void cleanUp() {yourSearchPage.closeNewDriver(driver);}*/
+
+
+    @AfterTest(groups = { "test3" }, alwaysRun = false)
+    public void cleanUp() {
+        if (driver != null){
+            driver.close();
+            driver.quit();
+        }
+    }
 
 
     @BeforeMethod(alwaysRun = true)
@@ -235,6 +214,38 @@ public class SearchTest extends AbstractTestNGSpringContextTests {
         String[] locationParts = location.split("[,\\s]");
         city = locationParts[0];
 
+    }
+
+
+    private String getDateFormatForLittleSearchFilter(){
+
+        Date checkInDate = StaysSearchForm.getCheckInDate();
+        SimpleDateFormat formatForLittleFilter = new SimpleDateFormat("MMM d");
+        String date1 = formatForLittleFilter.format(checkInDate);
+
+
+        Date checkOutDate = StaysSearchForm.getCheckOutDate();
+        String date2 = formatForLittleFilter.format(checkOutDate);
+
+
+        if (StaysSearchForm.getCheckInMonth().contains(StaysSearchForm.getCheckOutMonth())){
+            String dayOfMonth = date2.substring(4);
+            return date1 + " – " + dayOfMonth;
+        } else{
+            return date1 + " – " + date2;
+        }
+    }
+
+    private void waitForCardListToLoad(){
+        int numberOfCards;
+        int j=0;
+        do{
+            j++;
+            numberOfCards  = yourSearchPage.getPropertiesOnFirstPage().size();
+            if (numberOfCards>6){
+                break;
+            }
+        } while (j<30);
     }
 
 }

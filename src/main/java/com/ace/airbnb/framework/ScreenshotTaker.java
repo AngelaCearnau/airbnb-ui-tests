@@ -23,7 +23,8 @@ public class ScreenshotTaker extends AbstractTestExecutionListener {
             TakesScreenshot takesScreenshot = (TakesScreenshot) testContext.getApplicationContext()
                     .getBean(WebDriver.class);
             File screenshot = takesScreenshot.getScreenshotAs(OutputType.FILE);
-            File dir = new File("target/screenshots");
+            //File dir = new File("target/screenshots");
+            File dir = new File("test-output/screenshots");
             if (!dir.exists()) {
                 Files.createDirectories(dir.toPath());
             }
