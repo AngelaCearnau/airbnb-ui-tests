@@ -132,11 +132,6 @@ public class StaysSearchForm {
         }
 
         public void hoverOverProperty(int index){
-       /*     new Actions(driver)
-                    .moveToElement(driver.findElement(By.xpath("(//div[@itemprop='itemListElement']/parent::div/parent::div/parent::div[@class='']//div[@data-testid='card-container'])[1]")))
-                    .perform();*/
-
-            //String propWithIndex = String.valueOf(index);
             browser.hoverOn(PROPERTY_CARD_TEST);
         }
 

@@ -46,8 +46,9 @@ public enum SelectorsYourSearchPage implements Supplier<By> {
     FILTERS_SHOW_PLACES_BUTTON("//*[@aria-label='Filters']//footer/div/a"),
 
     //map
-    PIN_ON_MAP_STYLE("//button[@data-testid='map/markers/BasePillMarker']/div/div"),
-    SELECTED_ON_MAP_BUTTON("//button[@data-testid='map/markers/BasePillMarker']//span[contains(text(),'selected')]/ancestor::button"),
+    SELECTED_ON_MAP("//button[@data-testid='map/markers/BasePillMarker']"),
+    PIN_ON_MAP_STYLE(SELECTED_ON_MAP.get(),"/div/div"),
+    SELECTED_ON_MAP_BUTTON(SELECTED_ON_MAP.get(),"//span[contains(text(),'selected')]/ancestor::button"),
     SELECTED_ON_MAP_BUTTON_STYLE(SELECTED_ON_MAP_BUTTON.get(),"/div/div"),
 
     CLICKED_ON_MAP_CARD("//div[@aria-roledescription='map']//div[@data-testid='card-container']"),

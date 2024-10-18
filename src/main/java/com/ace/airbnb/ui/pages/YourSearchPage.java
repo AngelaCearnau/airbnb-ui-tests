@@ -34,7 +34,6 @@ public class YourSearchPage {
 
     public YourSearchPage(Browser browser) {
         this.browser = browser;
-        //wait = new WebDriverWait(browser, Duration.ofSeconds(Constants.TIMEOUT_DEFAULT));
     }
 
 
@@ -121,7 +120,6 @@ public class YourSearchPage {
         int j=0;
         do{
             j++;
-            //System.out.println("Counter" +  j);
             totalNumberOfCards  = getPropertiesOnFirstPage().size();
             if (totalNumberOfCards==expectedNumberOfCards){
                 break;
@@ -146,8 +144,7 @@ public class YourSearchPage {
         element =  driver.findElement(PRICE_AVAILABILITY.xpathWithParam(propWithIndex).get());
 
         String price=element.getText();
-        /*int end = price.indexOf("night");
-        String displayedPrice= price.substring(0, end);*/
+
         element =  driver.findElement(PROPERTY_CARD_INFO_REVIEW_SCORE.xpathWithParam(propWithIndex).get());
         String score=element.getText();
         return new PropertyCard(name, subtitle, secondSubtitle, price, score);
@@ -170,8 +167,7 @@ public class YourSearchPage {
 
         WebElement card_displayedPrice =  element.findElement(CLICKED_ON_MAP_CARD_PRICING.get());
         String price= card_displayedPrice.getText();
-        /*int end = price.indexOf("night");
-        String displayedPrice= price.substring(0, end);*/
+
         WebElement card_displayedScore =  element.findElement(CLICKED_ON_MAP_CARD_SCORE.get());
         String score = card_displayedScore.getText();
 
@@ -236,17 +232,5 @@ public class YourSearchPage {
         list.add(propertyCardOnMap);
         return list;
     }
-
-    public void closeNewDriver(WebDriver driver){
-
-        if (driver != null){
-            driver.close();
-            driver.quit();
-        }
-
-    }
-
-
-
 
 }

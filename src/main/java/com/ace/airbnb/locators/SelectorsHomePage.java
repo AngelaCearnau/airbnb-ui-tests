@@ -41,9 +41,6 @@ public enum SelectorsHomePage implements Supplier<By> {
     private By by;
 
 
-    //static String PARAM = "{placeholder}";
-
-
     SelectorsHomePage(String id) {
         this.by = xpath(id);
     }
