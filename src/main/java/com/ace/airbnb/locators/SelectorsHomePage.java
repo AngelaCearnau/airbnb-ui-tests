@@ -12,7 +12,7 @@ public enum SelectorsHomePage implements Supplier<By> {
 
 
 
-    // home page serach
+    // home page search
     EXPLORE_HEADER("//*[@data-testid='QA_EXPLORE_HEADER']"),
     EXPLORE_HEADER_WHERE_INPUT(EXPLORE_HEADER.get(),"//*[@data-testid='structured-search-input-field-query']"),
 

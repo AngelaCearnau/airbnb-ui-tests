@@ -79,8 +79,6 @@ public class StaysSearchForm {
         String date1 = formatForCalendar.format(checkInDate);
 
         checkInMonth = new SimpleDateFormat("MMM").format(calendar.getTime());
-       // System.out.println("Date to select: " +date1);
-
 
         browser.click(EXPLORE_HEADER_CHECKIN);
         browser.await(EXPLORE_HEADER_DATES);
@@ -116,7 +114,6 @@ public class StaysSearchForm {
             guests++;
         }
 
-        //System.out.println("Guests: " + guests);
         new WebDriverWait(browser, Duration.ofSeconds(20)).until(
                 webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
 
@@ -132,26 +129,7 @@ public class StaysSearchForm {
         new WebDriverWait(browser, Duration.ofSeconds(20)).until(
                 webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
 
-/*        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }*/
-
-/*
-        new WebDriverWait(browser, Duration.ofSeconds(20)).until(
-                webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
-        ;
-        browser.awaitVisible(FIRST_CARD);*/
         }
-
-        public String getUrl(){
-            //System.out.println("url:" + url);
-            return browser.getCurrentUrl();
-        }
-
-
-
 
         public void hoverOverProperty(int index){
        /*     new Actions(driver)

@@ -15,15 +15,13 @@ public enum SelectorsYourSearchPage implements Supplier<By> {
     // home page search
     YOUR_SEARCH_SECTION("//*[@data-testid='category-item--Your search--checked']"),
     STAYS_PAGE_HEADING("//*[@data-testid='stays-page-heading']"),
-    //STAYS_PAGE_HEADING_TEXT("//span[text() = 'Over 1,000 places in Rome']"),
-    STAYS_PAGE_HEADING_TEXT("//span[contains(text(),'places in Rome')]"),
+    STAYS_PAGE_HEADING_TEXT("//span[contains(text(),'places in')]"),
     SEARCH_LOCATION("//*[@data-testid='little-search-location']/div"),
     SEARCH_GUESTS("//*[@data-testid='little-search-guests']/div"),
     SEARCH_DATE("//*[@data-testid='little-search-date']/div"),
 
     PROPERTIES_DISPLAYED("//div[@itemprop='itemListElement']/parent::div/parent::div/parent::div[@class='']"),
 
-    //PROPERTY_CARD("//div[@itemprop='itemListElement']/meta[@content='" + "{placeholder}" + "']/parent::div//div[@data-testid='card-container']"),
     PROPERTY_CARD_TEST("(//div[@itemprop='itemListElement']/parent::div/parent::div/parent::div[@class='']//div[@data-testid='card-container'])[1]"),
     PROPERTY_CARD("(//div[@itemprop='itemListElement']/parent::div/parent::div/parent::div[@class='']//div[@data-testid='card-container'])[" + PLACEHOLDER + "]"),
 
@@ -35,9 +33,6 @@ public enum SelectorsYourSearchPage implements Supplier<By> {
     PROPERTY_CARD_INFO_NAME(PROPERTY_CARD.get(),"//*[@data-testid='listing-card-title']"),
     PRICE_AVAILABILITY(PROPERTY_CARD.get(),"//*[@data-testid='price-availability-row']//div[contains(@style, 'pricing')]//div//span/span"),
     PROPERTY_CARD_INFO_REVIEW_SCORE(PROPERTY_CARD.get(),"//div[@data-testid='price-availability-row']/following-sibling::div/span/span[3]"),
-    //PROPERTY_CARD(PROPERTIES_DISPLAYED.get(), "(//div[@itemprop='itemListElement']/parent::div/parent::div/parent::div[@class='']//div[@data-testid='card-container'])[" + PLACEHOLDER + "]"),
-//'listing-card-title'
-    //'listing-card-subtitle'
 
 
     //more filters
